@@ -11,14 +11,11 @@ class TabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupTubBar()
     }
     
     private func setupTubBar()  {
-        
         view.backgroundColor = .white
-        
         let viewControllers = [
             createNavController(for: CategoryViewController(), title: "ToDo", image: UIImage(systemName: "house")!),
             createNavController(for: SecondViewController(), title: "SecondVC", image: UIImage(systemName: "person")!)

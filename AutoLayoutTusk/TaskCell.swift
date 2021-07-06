@@ -10,7 +10,7 @@ import UIKit
 class TaskCell: UITableViewCell {
     
     let cellView : UIView = {
-       let view = UIView()
+        let view = UIView()
         view.backgroundColor = .systemGray6
         view.layer.cornerRadius = 20
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -18,7 +18,7 @@ class TaskCell: UITableViewCell {
     }()
     
     let taskLabel : UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.numberOfLines = 0
@@ -28,10 +28,11 @@ class TaskCell: UITableViewCell {
     let statusButton : UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "circle"), for: .normal)
         return button
     }()
     
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier : String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureUI()
@@ -41,6 +42,7 @@ class TaskCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     private func configureUI(){
+        selectionStyle = .none
         setupCellView()
         setupStatusButton()
         setupTaskLabel()
@@ -48,47 +50,31 @@ class TaskCell: UITableViewCell {
     
     private func setupCellView() {
         contentView.addSubview(cellView)
-
-        
         NSLayoutConstraint.activate([
-            
             cellView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 3),
             cellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 14),
             cellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -14),
             cellView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -3),
-        
         ])
-        
-     
     }
     
     private func setupStatusButton() {
         cellView.addSubview(statusButton)
-
         NSLayoutConstraint.activate([
             statusButton.widthAnchor.constraint(equalToConstant: 24),
             statusButton.heightAnchor.constraint(equalToConstant: 24),
             statusButton.centerYAnchor.constraint(equalTo: cellView.centerYAnchor),
             statusButton.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 17)
-            
         ])
-        statusButton.setImage(UIImage(systemName: "circle"), for: .normal)
     }
     
     private func setupTaskLabel() {
         cellView.addSubview(taskLabel)
-
         NSLayoutConstraint.activate([
             taskLabel.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 21),
             taskLabel.bottomAnchor.constraint(equalTo: cellView.bottomAnchor, constant: -21),
             taskLabel.leadingAnchor.constraint(equalTo: statusButton.trailingAnchor, constant: 16),
             taskLabel.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant: -16)
-            
         ])
-        
-        
-        
     }
-    
-
 }
