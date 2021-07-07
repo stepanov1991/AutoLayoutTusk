@@ -11,28 +11,13 @@ class NewsViewController: UIViewController {
     
     var suggestions = [SuggestionModel]()
     
-    let headerView : UIView = {
-     let view = UIView()
+    let headerView : HeaderView = {
+     let view = HeaderView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    let sourceIconImageView : UIImageView = {
-     let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "flowerIcon")
-        return image
-    }()
-    
-    let sourceLabel : UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .left
-        label.text = "N.U. Agrar GmbH - Grunes Info"
-        label.textColor = .darkGray
-        label.font = UIFont.systemFont(ofSize: 18)
-        return label
-    }()
+   
     
     let lineView : UIView = {
         let view = UIView()
@@ -164,8 +149,7 @@ class NewsViewController: UIViewController {
     private func configureUI() {
         navigationController?.isNavigationBarHidden = true
         setupHeaderView()
-        setupSourceIconImageView()
-        setupSourceLabel()
+       
         setupLineView()
         setupScrollView()
         setupContentView()
@@ -191,26 +175,7 @@ class NewsViewController: UIViewController {
                         ])
     }
 
-    private func setupSourceIconImageView() {
-        headerView.addSubview(sourceIconImageView)
-        NSLayoutConstraint.activate([
-            sourceIconImageView.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 8),
-            sourceIconImageView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -8),
-            sourceIconImageView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 30),
-            sourceIconImageView.widthAnchor.constraint(equalToConstant: 50),
-            sourceIconImageView.heightAnchor.constraint(equalToConstant: 50)
-        ])
-    }
-    
-    private func setupSourceLabel() {
-        headerView.addSubview(sourceLabel)
-        NSLayoutConstraint.activate([
-            sourceLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
-            sourceLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -30),
-            sourceLabel.leadingAnchor.constraint(equalTo: sourceIconImageView.trailingAnchor, constant: 20)
-        ])
-    }
-    
+   
     private func setupLineView() {
         headerView.addSubview(lineView)
         NSLayoutConstraint.activate([
