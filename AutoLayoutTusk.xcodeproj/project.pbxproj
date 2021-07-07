@@ -22,6 +22,7 @@
 		CEC20CF12695AD2A00A23D31 /* SuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC20CF02695AD2A00A23D31 /* SuggestionsView.swift */; };
 		CEC20CF42695C6E600A23D31 /* SuggestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC20CF32695C6E600A23D31 /* SuggestionModel.swift */; };
 		CEC20CF62695DB1C00A23D31 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC20CF52695DB1C00A23D31 /* HeaderView.swift */; };
+		CEC20CF82695DD3300A23D31 /* AutorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC20CF72695DD3300A23D31 /* AutorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		CEC20CF02695AD2A00A23D31 /* SuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsView.swift; sourceTree = "<group>"; };
 		CEC20CF32695C6E600A23D31 /* SuggestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionModel.swift; sourceTree = "<group>"; };
 		CEC20CF52695DB1C00A23D31 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		CEC20CF72695DD3300A23D31 /* AutorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				CEC20CF52695DB1C00A23D31 /* HeaderView.swift */,
+				CEC20CF72695DD3300A23D31 /* AutorView.swift */,
 				CEC20CEC2695863A00A23D31 /* AdView.swift */,
 				CEC20CF02695AD2A00A23D31 /* SuggestionsView.swift */,
 			);
@@ -187,6 +190,7 @@
 				CEC20CED2695863A00A23D31 /* AdView.swift in Sources */,
 				CEC20CF12695AD2A00A23D31 /* SuggestionsView.swift in Sources */,
 				CE7922EE268F461900C4A080 /* TabBarViewController.swift in Sources */,
+				CEC20CF82695DD3300A23D31 /* AutorView.swift in Sources */,
 				CE7922DA268F45C300C4A080 /* AppDelegate.swift in Sources */,
 				CEC20CF42695C6E600A23D31 /* SuggestionModel.swift in Sources */,
 				CE7922F8269302D600C4A080 /* TaskViewController.swift in Sources */,

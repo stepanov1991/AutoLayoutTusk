@@ -17,16 +17,6 @@ class NewsViewController: UIViewController {
         return view
     }()
     
-   
-    
-    let lineView : UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.borderWidth = 0.5
-        view.layer.borderColor = UIColor.lightGray.cgColor
-        return view
-    }()
-    
     let scrollView : UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -60,38 +50,12 @@ class NewsViewController: UIViewController {
         return label
     }()
     
-    let autorView : UIView = {
-       let view = UIView()
+    let autorView : AutorView = {
+       let view = AutorView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
-    let autorImageView : UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "autorIcon")
-        return imageView
-    }()
-    
-    let autorNameLabel : UILabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 12)
-        label.text = "Raimund Kunze"
-        return label
-    }()
-    
-    let publicatonTimeLabel : UILabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = .darkGray
-        label.text = "June 6 2019"
-        return label
-    }()
-    
+      
     let newsImageView : UIImageView = {
        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -105,7 +69,6 @@ class NewsViewController: UIViewController {
         label.textAlignment = .left
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 14)
-//        label.text = "Bla bla bla bla bla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla blabla bla bla "
         label.text = Array(repeating: "Bla bla bla bla ", count: 100).joined()
         return label
     }()
@@ -149,16 +112,11 @@ class NewsViewController: UIViewController {
     private func configureUI() {
         navigationController?.isNavigationBarHidden = true
         setupHeaderView()
-       
-        setupLineView()
         setupScrollView()
         setupContentView()
         setupTitleLabel()
         setupTitleSourceLabel()
         setupAutorView()
-        setupAutorImageView()
-        setupAutorNameLabel()
-        setupPublicatonTimeLabel()
         setupNewsImageView()
         setupNewsTextLabel()
         setupAdView()
@@ -176,15 +134,7 @@ class NewsViewController: UIViewController {
     }
 
    
-    private func setupLineView() {
-        headerView.addSubview(lineView)
-        NSLayoutConstraint.activate([
-            lineView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor),
-            lineView.heightAnchor.constraint(equalToConstant: 0.5),
-            lineView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor,constant: 10),
-            lineView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -10)
-                        ])
-    }
+   
     
     private func setupScrollView() {
         view.addSubview(scrollView)
@@ -233,41 +183,11 @@ class NewsViewController: UIViewController {
         ])
     }
     
-    private func setupAutorImageView() {
-        autorView.addSubview(autorImageView)
-        NSLayoutConstraint.activate([
-            autorImageView.topAnchor.constraint(equalTo: autorView.topAnchor),
-            autorImageView.leadingAnchor.constraint(equalTo: autorView.leadingAnchor),
-            autorImageView.widthAnchor.constraint(equalToConstant: 50),
-            autorImageView.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        autorImageView.layer.masksToBounds = false
-        autorImageView.layer.cornerRadius = 25
-        autorImageView.clipsToBounds = true
-    }
-    
-    private func setupAutorNameLabel() {
-        autorView.addSubview(autorNameLabel)
-        NSLayoutConstraint.activate([
-            autorNameLabel.bottomAnchor.constraint(equalTo: autorImageView.centerYAnchor, constant: -5),
-            autorNameLabel.leadingAnchor.constraint(equalTo: autorImageView.trailingAnchor, constant: 10),
-            autorNameLabel.trailingAnchor.constraint(equalTo: autorView.trailingAnchor),
-        ])
-    }
-    
-    private func setupPublicatonTimeLabel() {
-        autorView.addSubview(publicatonTimeLabel)
-        NSLayoutConstraint.activate([
-            publicatonTimeLabel.topAnchor.constraint(equalTo: autorImageView.centerYAnchor, constant: 5),
-            publicatonTimeLabel.leadingAnchor.constraint(equalTo: autorImageView.trailingAnchor, constant: 10),
-            publicatonTimeLabel.trailingAnchor.constraint(equalTo: autorView.trailingAnchor),
-        ])
-    }
-    
+
     private func setupNewsImageView(){
         contentView.addSubview(newsImageView)
         NSLayoutConstraint.activate([
-            newsImageView.topAnchor.constraint(equalTo: autorImageView.bottomAnchor, constant: 20),
+            newsImageView.topAnchor.constraint(equalTo: autorView.bottomAnchor, constant: 80),
             newsImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             newsImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
         ])

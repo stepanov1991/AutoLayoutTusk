@@ -25,6 +25,13 @@ class HeaderView: UIView {
         label.font = UIFont.systemFont(ofSize: 18)
         return label
     }()
+    let lineView : UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.borderWidth = 0.5
+        view.layer.borderColor = UIColor.lightGray.cgColor
+        return view
+    }()
 
     
     
@@ -36,9 +43,11 @@ class HeaderView: UIView {
     required init?(coder: NSCoder) {
      fatalError("init(coder:) has not been implemented")
     }
+    
     private func configureUI() {
         setupSourceIconImageView()
         setupSourceLabel()
+        setupLineView()
     }
     
     private func setupSourceIconImageView() {
@@ -59,6 +68,16 @@ class HeaderView: UIView {
             sourceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
             sourceLabel.leadingAnchor.constraint(equalTo: sourceIconImageView.trailingAnchor, constant: 20)
         ])
+    }
+    
+    private func setupLineView() {
+        self.addSubview(lineView)
+        NSLayoutConstraint.activate([
+            lineView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            lineView.heightAnchor.constraint(equalToConstant: 0.5),
+            lineView.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 10),
+            lineView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10)
+                        ])
     }
  
 }
