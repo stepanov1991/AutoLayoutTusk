@@ -8,8 +8,6 @@
 import UIKit
 
 class AdView : UIView {
-
- 
     
     let titleLabel : UILabel = {
         let label = UILabel()
@@ -21,6 +19,7 @@ class AdView : UIView {
         label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
     }()
+    
     let descriptionLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -42,8 +41,8 @@ class AdView : UIView {
         return button
     }()
     
-
-
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
@@ -59,13 +58,14 @@ class AdView : UIView {
         setupDescriptionLabel()
         setupSubscribeButton()
     }
+    
     private func setupTitleLabel() {
         self.addSubview(titleLabel)
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
             titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-                    ])
+        ])
     }
     
     private func setupDescriptionLabel() {
@@ -74,7 +74,7 @@ class AdView : UIView {
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
             descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-                    ])
+        ])
     }
     
     private func setupSubscribeButton() {
@@ -85,6 +85,6 @@ class AdView : UIView {
             subscribeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             subscribeButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15),
             subscribeButton.heightAnchor.constraint(equalToConstant: 40)
-                    ])
+        ])
     }
 }

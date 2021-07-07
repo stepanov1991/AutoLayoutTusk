@@ -12,7 +12,7 @@ class NewsViewController: UIViewController {
     var suggestions = [SuggestionModel]()
     
     let headerView : HeaderView = {
-     let view = HeaderView()
+        let view = HeaderView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -30,17 +30,17 @@ class NewsViewController: UIViewController {
     }()
     
     let titleLabel : UILabel = {
-    let label = UILabel()
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 24)
         label.text = "Mulchsaat, Strip Till, Direktsaat - was spart merh Wasser?"
-      return label
+        return label
     }()
     
     let titleSourceLabel : UILabel = {
-    let label = UILabel()
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.numberOfLines = 0
@@ -51,13 +51,13 @@ class NewsViewController: UIViewController {
     }()
     
     let autorView : AutorView = {
-       let view = AutorView()
+        let view = AutorView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-      
+    
     let newsImageView : UIImageView = {
-       let imageView = UIImageView()
+        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "cornFieldImage")
         return imageView
@@ -81,25 +81,24 @@ class NewsViewController: UIViewController {
     }()
     
     let suggestionsView0 : SuggestionsView = {
-       let view = SuggestionsView()
+        let view = SuggestionsView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     let suggestionsView1 : SuggestionsView = {
-       let view = SuggestionsView()
+        let view = SuggestionsView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.avatarImageView.layer.masksToBounds = false
+        view.avatarImageView.layer.cornerRadius = 25
+        view.avatarImageView.clipsToBounds = true
         return view
     }()
-  
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchSuggestion()
         configureUI()
-
-        
     }
     
     func fetchSuggestion() {
@@ -107,8 +106,8 @@ class NewsViewController: UIViewController {
         let suggestion1  = SuggestionModel(avatarName: "autorIcon", title: "Raimund Kunze", description: "Run by Richard Ballard and his business partners", folowStatus: false)
         suggestions.append(suggestion0)
         suggestions.append(suggestion1)
-        
     }
+    
     private func configureUI() {
         navigationController?.isNavigationBarHidden = true
         setupHeaderView()
@@ -130,11 +129,8 @@ class NewsViewController: UIViewController {
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-                        ])
+        ])
     }
-
-   
-   
     
     private func setupScrollView() {
         view.addSubview(scrollView)
@@ -162,9 +158,10 @@ class NewsViewController: UIViewController {
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-
+            
         ])
     }
+    
     private func setupTitleSourceLabel() {
         contentView.addSubview(titleSourceLabel)
         NSLayoutConstraint.activate([
@@ -183,7 +180,6 @@ class NewsViewController: UIViewController {
         ])
     }
     
-
     private func setupNewsImageView(){
         contentView.addSubview(newsImageView)
         NSLayoutConstraint.activate([
@@ -199,14 +195,10 @@ class NewsViewController: UIViewController {
             newsTextLabel.topAnchor.constraint(equalTo: newsImageView.bottomAnchor, constant: 20),
             newsTextLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             newsTextLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-//            newsTextLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
-        
-        
     }
     private func setupAdView() {
         contentView.addSubview(adView)
-        
         NSLayoutConstraint.activate([
             adView.topAnchor.constraint(equalTo: newsTextLabel.bottomAnchor, constant: 20),
             adView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
@@ -220,32 +212,22 @@ class NewsViewController: UIViewController {
             suggestionsView0.topAnchor.constraint(equalTo: adView.bottomAnchor, constant: 30),
             suggestionsView0.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             suggestionsView0.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            suggestionsView0.heightAnchor.constraint(equalToConstant: 100)
         ])
         let suggestion = suggestions[0]
-        suggestionsView0.avatarImageView.image = UIImage(named: suggestion.avatarName)
-        suggestionsView0.titleLabel.text = suggestion.title
-        suggestionsView0.descriptionLabel.text = suggestion.description
-        suggestionsView0.isFollowing(status: suggestion.folowStatus)
-
+        suggestionsView0.getSuggestion(suggestion: suggestion)
     }
     
     private func setupSuggestionView1() {
         contentView.addSubview(suggestionsView1)
         NSLayoutConstraint.activate([
-            suggestionsView1.topAnchor.constraint(equalTo: suggestionsView0.bottomAnchor, constant: 100),
+            suggestionsView1.topAnchor.constraint(equalTo: suggestionsView0.bottomAnchor),
             suggestionsView1.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             suggestionsView1.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             suggestionsView1.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -80)
         ])
         let suggestion = suggestions[1]
-        suggestionsView1.avatarImageView.image = UIImage(named: suggestion.avatarName)
-        suggestionsView1.titleLabel.text = suggestion.title
-        suggestionsView1.descriptionLabel.text = suggestion.description
-        suggestionsView1.isFollowing(status: suggestion.folowStatus)
-        suggestionsView1.avatarImageView.layer.masksToBounds = false
-        suggestionsView1.avatarImageView.layer.cornerRadius = 25
-        suggestionsView1.avatarImageView.clipsToBounds = true
-
-            }
-        
+        suggestionsView1.getSuggestion(suggestion: suggestion)
+    }
+    
 }

@@ -25,6 +25,7 @@ class HeaderView: UIView {
         label.font = UIFont.systemFont(ofSize: 18)
         return label
     }()
+    
     let lineView : UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -33,8 +34,6 @@ class HeaderView: UIView {
         return view
     }()
 
-    
-    
     override init(frame: CGRect) {
      super.init(frame: frame)
      configureUI()

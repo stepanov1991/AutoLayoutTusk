@@ -25,7 +25,7 @@ class SuggestionsView: UIView {
     }()
     
     let titleLabel : UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.numberOfLines = 0
@@ -44,7 +44,7 @@ class SuggestionsView: UIView {
         label.font = UIFont.boldSystemFont(ofSize: 12)
         return label
     }()
-
+    
     let followButton : UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -53,15 +53,14 @@ class SuggestionsView: UIView {
         return button
     }()
     
-
-override init(frame: CGRect) {
- super.init(frame: frame)
- configureUI()
-}
-
-required init?(coder: NSCoder) {
- fatalError("init(coder:) has not been implemented")
-}
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configureUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     private func configureUI() {
         self.backgroundColor = .white
         setupLineView()
@@ -78,7 +77,7 @@ required init?(coder: NSCoder) {
             lineView.heightAnchor.constraint(equalToConstant: 0.5),
             lineView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             lineView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
-                        ])
+        ])
     }
     
     private func setupAvatarImageView() {
@@ -88,9 +87,8 @@ required init?(coder: NSCoder) {
             avatarImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             avatarImageView.widthAnchor.constraint(equalToConstant: 50),
             avatarImageView.heightAnchor.constraint(equalToConstant: 50)
-            
         ])
-
+        
     }
     private func setupFollowButton() {
         self.addSubview(followButton)
@@ -99,7 +97,6 @@ required init?(coder: NSCoder) {
             followButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
             followButton.widthAnchor.constraint(equalToConstant: 80),
             followButton.heightAnchor.constraint(equalToConstant: 30)
-            
         ])
     }
     
@@ -109,7 +106,6 @@ required init?(coder: NSCoder) {
             titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             titleLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 10),
             titleLabel.trailingAnchor.constraint(equalTo: followButton.leadingAnchor, constant: -20),
-            
         ])
     }
     
@@ -119,17 +115,15 @@ required init?(coder: NSCoder) {
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             descriptionLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 10),
             descriptionLabel.trailingAnchor.constraint(equalTo: followButton.leadingAnchor, constant: -20),
-            
         ])
     }
     
-    func isFollowing (status: Bool) {
+    func isFollowing(status: Bool) {
         if status {
             followButton.setTitle("Following", for: .normal)
             followButton.setTitleColor(.white, for: .normal)
             followButton.backgroundColor = .orange
             followButton.layer.borderColor = UIColor.white.cgColor
-
         }
         else {
             followButton.setTitle("Follow", for: .normal)
@@ -139,5 +133,12 @@ required init?(coder: NSCoder) {
         }
     }
     
-  
+    func getSuggestion(suggestion: SuggestionModel) {
+        avatarImageView.image = UIImage(named: suggestion.avatarName)
+        titleLabel.text = suggestion.title
+        descriptionLabel.text = suggestion.description
+        isFollowing(status: suggestion.folowStatus)
+    }
+    
+    
 }
