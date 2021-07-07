@@ -18,7 +18,7 @@ class TabBarViewController: UITabBarController {
         view.backgroundColor = .white
         let viewControllers = [
             createNavController(for: CategoryViewController(), title: "ToDo", image: UIImage(systemName: "house")!),
-            createNavController(for: SecondViewController(), title: "SecondVC", image: UIImage(systemName: "person")!)
+            createNavController(for: NewsViewController(), title: "SecondVC", image: UIImage(systemName: "person")!)
         ]
         self.setViewControllers(viewControllers, animated: true)
     }

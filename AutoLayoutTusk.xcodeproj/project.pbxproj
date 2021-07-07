@@ -13,11 +13,14 @@
 		CE7922E6268F45C800C4A080 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE7922E4268F45C800C4A080 /* LaunchScreen.storyboard */; };
 		CE7922EE268F461900C4A080 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7922ED268F461900C4A080 /* TabBarViewController.swift */; };
 		CE7922F0268F4A1B00C4A080 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7922EF268F4A1B00C4A080 /* CategoryViewController.swift */; };
-		CE7922F2268F4A3200C4A080 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7922F1268F4A3200C4A080 /* SecondViewController.swift */; };
+		CE7922F2268F4A3200C4A080 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7922F1268F4A3200C4A080 /* NewsViewController.swift */; };
 		CE7922F42692E33E00C4A080 /* CaregoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7922F32692E33E00C4A080 /* CaregoryCell.swift */; };
 		CE7922F62692F09400C4A080 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7922F52692F09400C4A080 /* Category.swift */; };
 		CE7922F8269302D600C4A080 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7922F7269302D600C4A080 /* TaskViewController.swift */; };
 		CE7922FA2693203600C4A080 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7922F92693203600C4A080 /* TaskCell.swift */; };
+		CEC20CED2695863A00A23D31 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC20CEC2695863A00A23D31 /* AdView.swift */; };
+		CEC20CF12695AD2A00A23D31 /* SuggestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC20CF02695AD2A00A23D31 /* SuggestionsView.swift */; };
+		CEC20CF42695C6E600A23D31 /* SuggestionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC20CF32695C6E600A23D31 /* SuggestionModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,11 +32,14 @@
 		CE7922E7268F45C800C4A080 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE7922ED268F461900C4A080 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		CE7922EF268F4A1B00C4A080 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
-		CE7922F1268F4A3200C4A080 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		CE7922F1268F4A3200C4A080 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		CE7922F32692E33E00C4A080 /* CaregoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaregoryCell.swift; sourceTree = "<group>"; };
 		CE7922F52692F09400C4A080 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		CE7922F7269302D600C4A080 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		CE7922F92693203600C4A080 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		CEC20CEC2695863A00A23D31 /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
+		CEC20CF02695AD2A00A23D31 /* SuggestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsView.swift; sourceTree = "<group>"; };
+		CEC20CF32695C6E600A23D31 /* SuggestionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,14 +78,33 @@
 				CE7922E4268F45C800C4A080 /* LaunchScreen.storyboard */,
 				CE7922E7268F45C800C4A080 /* Info.plist */,
 				CE7922ED268F461900C4A080 /* TabBarViewController.swift */,
-				CE7922F1268F4A3200C4A080 /* SecondViewController.swift */,
 				CE7922EF268F4A1B00C4A080 /* CategoryViewController.swift */,
 				CE7922F32692E33E00C4A080 /* CaregoryCell.swift */,
 				CE7922F52692F09400C4A080 /* Category.swift */,
 				CE7922F7269302D600C4A080 /* TaskViewController.swift */,
 				CE7922F92693203600C4A080 /* TaskCell.swift */,
+				CE7922F1268F4A3200C4A080 /* NewsViewController.swift */,
+				CEC20CF22695C6B000A23D31 /* NewsModel */,
+				CEC20CEB2695819D00A23D31 /* NewsSubViews */,
 			);
 			path = AutoLayoutTusk;
+			sourceTree = "<group>";
+		};
+		CEC20CEB2695819D00A23D31 /* NewsSubViews */ = {
+			isa = PBXGroup;
+			children = (
+				CEC20CEC2695863A00A23D31 /* AdView.swift */,
+				CEC20CF02695AD2A00A23D31 /* SuggestionsView.swift */,
+			);
+			path = NewsSubViews;
+			sourceTree = "<group>";
+		};
+		CEC20CF22695C6B000A23D31 /* NewsModel */ = {
+			isa = PBXGroup;
+			children = (
+				CEC20CF32695C6E600A23D31 /* SuggestionModel.swift */,
+			);
+			path = NewsModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,11 +178,14 @@
 			files = (
 				CE7922FA2693203600C4A080 /* TaskCell.swift in Sources */,
 				CE7922F42692E33E00C4A080 /* CaregoryCell.swift in Sources */,
-				CE7922F2268F4A3200C4A080 /* SecondViewController.swift in Sources */,
+				CE7922F2268F4A3200C4A080 /* NewsViewController.swift in Sources */,
 				CE7922F0268F4A1B00C4A080 /* CategoryViewController.swift in Sources */,
 				CE7922F62692F09400C4A080 /* Category.swift in Sources */,
+				CEC20CED2695863A00A23D31 /* AdView.swift in Sources */,
+				CEC20CF12695AD2A00A23D31 /* SuggestionsView.swift in Sources */,
 				CE7922EE268F461900C4A080 /* TabBarViewController.swift in Sources */,
 				CE7922DA268F45C300C4A080 /* AppDelegate.swift in Sources */,
+				CEC20CF42695C6E600A23D31 /* SuggestionModel.swift in Sources */,
 				CE7922F8269302D600C4A080 /* TaskViewController.swift in Sources */,
 				CE7922DC268F45C300C4A080 /* SceneDelegate.swift in Sources */,
 			);
